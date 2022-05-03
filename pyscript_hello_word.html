@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<script>
+
+    console.log('helloo world! js');
+</script>
+<py-env>
+    - matplotlib
+    - numpy
+</py-env>
+<body>
+    <py-script>
+import matplotlib.pyplot as plt
+import collections
+import functools
+import itertools
+
+print("hello world! <div> And here's a span! </div>")  # outputs last line to stdout like a notebook 
+print("4, 5, 6")
+
+print(" hello ")
+
+# matplot test
+fig, ax = plt.subplots()
+x: list[int] = [i for i in range(8)]
+y: list[int] = [i for i in range(8)]
+print(x, y)
+ax = plt.plot(x, y)
+fig
+</py-script>
+</body>
+</html>

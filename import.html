@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importing python scripts</title>
+</head>
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<py-env>
+    - matplotlib
+    - paths:
+        - http://localhost:8000/imported_script.py
+</py-env>
+<body>
+    <py-script>
+import matplotlib.pyplot as plt
+from imported_script import imported_function
+
+fibo = imported_function(17)
+fig, ax = plt.subplots()
+ax = plt.plot([x for x,_ in enumerate(fibo)], fibo)
+fig
+    </py-script>
+</body>
+</html>

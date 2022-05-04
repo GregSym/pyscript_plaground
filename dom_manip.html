@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<py-env>
+    - matplotlib
+</py-env>
+<body>
+<h1>PyScript dom manipulation stuff</h1>
+<h3 id="subheading"> Random number generated in python: </h3>
+<py-script>
+x: list[int] = [i for i in range(9)]
+y: list[int] = [i for i in range(9)]
+
+</py-script>
+<py-script>
+import random
+import matplotlib.pyplot as plt
+from js import document
+import random
+
+element = document.getElementById('subheading')
+element.textContent = element.textContent + f'{random.randint(0, 10)}'
+    
+fig, ax = plt.subplots()
+ax = plt.plot(x, y)
+fig
+</py-script>    
+</body>
+</html>

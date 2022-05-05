@@ -8,12 +8,28 @@
 </head>
 <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
 <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<style>
+    td {
+        width: 100px;
+        padding: 4px;
+        background-color: aqua;
+        transition: transform 0.5s;
+        border-radius: 9px;
+        border: 10px;
+        border-style: inset;
+    }
+    td:hover {
+        transform: scale(200%);
+    }
+</style>
 <py-env>
     - matplotlib
+    - pandas
 </py-env>
 <body>
 <h1>PyScript dom manipulation stuff</h1>
 <h3 id="subheading"> Random number generated in python: </h3>
+<h3> matplotlib output: </h3>
 <py-script>
 x: list[int] = [i for i in range(9)]
 y: list[int] = [i for i in range(9)]
@@ -25,6 +41,7 @@ import matplotlib.pyplot as plt
 from js import document
 import random
 
+print(Element('subheading'))  # pyscript team seems to want to use these
 element = document.getElementById('subheading')
 element.textContent = element.textContent + f'{random.randint(0, 10)}'
     
@@ -32,5 +49,17 @@ fig, ax = plt.subplots()
 ax = plt.plot(x, y)
 fig
 </py-script>    
+<py-script>
+import random
+import pandas as pd
+
+def random_inner_list():
+    return [random.randint(0,100) for i in range(10)]
+
+ndim = [random_inner_list() for i in range(10)]
+
+df = pd.DataFrame(ndim)
+df.to_html()
+</py-script>
 </body>
 </html>

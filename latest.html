@@ -11,6 +11,7 @@
 <body>
     <button py-click="arbitrary()" id="test-button">trigger python</button>
     <!-- print / stdout goes to assigned element, document works like regular document -->
+    <!-- callback stdout goes to console -->
     <py-script output="outdiv">
 from js import document
 def arbitrary():
